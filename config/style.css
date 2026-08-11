@@ -1,0 +1,30 @@
+
+:root{
+    --primary-background-color: #1f1536;
+    --secundary-background-color: #421f57;
+
+    --primary-text-color: #ffffff;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    background-color: var(--primary-background-color);}
+
+body, #cards, .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+#cards{
+    flex-direction: row;
+    gap: 80px;}
+
+.card{
+    width: 450px;
+    height: 550px;
+    background-color: var(--secundary-background-color);
+    color: var(--primary-text-color);
+    border-radius: 3%;
+
+    flex-direction: column;}
