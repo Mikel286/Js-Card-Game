@@ -2,8 +2,10 @@
 :root{
     --primary-background-color: #1f1536;
     --secundary-background-color: #421f57;
+    --tertiary-background-color: #ffffff;
 
     --primary-text-color: #9f46d3;
+    --secundary-text-color: #ffffff;
 
     --primary-font-family: 'Cinzel';
 }
@@ -17,6 +19,17 @@ body, #cards, .card{
     display: flex;
     align-items: center;
     justify-content: center;}
+
+body{
+    flex-direction: column;
+    gap: 20px;}
+
+h1{
+    text-transform: uppercase;
+    color: var(--primary-text-color);
+    font-size: 3em;
+    font-family: var(--primary-font-family);
+}
 
 #cards{
     flex-direction: row;
@@ -36,7 +49,7 @@ body, #cards, .card{
 .card h2{
     font-family: var(--primary-font-family);
     text-transform: uppercase;
-    color: var(--primary-text-color);
+    color: var(--secundary-text-color);
 }
 
 .card-inner{
@@ -47,8 +60,16 @@ body, #cards, .card{
     transform-style: preserve-3d; /* permite que front/back existan en el espacio 3D */
 }
 
+.card:hover .card-inner{
+    transform: translateY(-8px);
+}
+
 .card.flipped .card-inner{
-    transform: rotateY(180deg); /* gira la carta */
+    transform: rotateY(180deg);
+}
+
+.card.flipped:hover .card-inner{
+    transform: rotateY(180deg) translateY(-8px);
 }
 
 .front, .back{
@@ -67,3 +88,9 @@ body, #cards, .card{
     height: 100%;
     object-fit: cover;
 }
+
+.back{
+    background-color: var(--tertiary-background-color);
+    border-radius: 4%;
+}
+
