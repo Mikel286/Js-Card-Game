@@ -8,12 +8,17 @@
     --secundary-text-color: #ffffff;
 
     --primary-font-family: 'Cinzel';
+
+    --glow-color: #6b2fa0;
 }
 
 body{
     margin: 0;
-    height: 100vh;
-    background-color: var(--primary-background-color);}
+    min-height: 100vh; /* antes height: 100vh */
+    background:
+        radial-gradient(circle at 50% 30%, var(--glow-color) 0%, transparent 55%),
+        linear-gradient(180deg, var(--secundary-background-color), var(--primary-background-color));
+    background-attachment: fixed;}
 
 body, #cards, .card{
     display: flex;
@@ -25,10 +30,19 @@ body{
     gap: 20px;}
 
 h1{
+    margin: 0;
+    text-align: center;
     text-transform: uppercase;
-    color: var(--primary-text-color);
-    font-size: 3em;
-    font-family: var(--primary-font-family);
+    font-family: var(--primary-font-family), serif;
+    font-size: clamp(1.8em, 5vw, 3.5em);
+    letter-spacing: 0.15em;
+
+    background: linear-gradient(180deg, var(--secundary-text-color), var(--primary-text-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter: drop-shadow(0 0 12px var(--glow-color));
 }
 
 #cards{
@@ -79,10 +93,6 @@ h1{
     backface-visibility: hidden; /* oculta la cara que no mira al usuario */
 }
 
-.back{
-    transform: rotateY(180deg); /* la back empieza "al revés" */
-}
-
 .front img{
     width: 100%;
     height: 100%;
@@ -90,7 +100,27 @@ h1{
 }
 
 .back{
-    background-color: var(--tertiary-background-color);
+    transform: rotateY(180deg); /* la back empieza "al revés" */
+    box-sizing: border-box;
+    padding: 40px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(160deg, var(--secundary-background-color), var(--primary-background-color));
+    border: 3px solid var(--primary-text-color);
     border-radius: 4%;
+    box-shadow: 0 0 25px var(--glow-color), inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.back p{
+    margin: 0;
+    text-align: center;
+    font-family: var(--primary-font-family), serif;
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: var(--secundary-text-color);
+    text-shadow: 0 0 10px var(--glow-color);
 }
 
